@@ -1,23 +1,27 @@
-import React, { Component } from 'react';
+import React, { component } from 'react';
 import { connect } from 'react-redux';
 
-import './App.css';
+import { addTodo, deleteTodo, finishedTask, deleteCompleted } from './actions/index';
 
+import AddTodo from './components/AddTodo';
+import TodoList from './components/TodoList';
 
+class App extends component {
 
-class App extends Component {
   render() {
     return (
-      <div>test</div>
-    );
+      <div className="App">
+        <AddTodo />
+        <TodoList />
+      </div>
+    )
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
-      movies: "The matrix",
-      activeMovite: null,
-  };
-};
+    todos: state.todos
+  }
+}
 
-export default connect(mapStateToProps, { increment, decrement })(Counter);
+export default connect(mapStateToProps, {addTodo, deleteTodo, finishedTask, deleteCompleted})(App);
