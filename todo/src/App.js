@@ -18,10 +18,12 @@ class App extends component {
   }
 }
 
+// Brings in the todos prop from the store
 const mapStateToProps = state => {
   return {
     todos: state.todos
   }
 }
 
+// Pulls in the actions from the store
 export default connect(mapStateToProps, {addTodo, deleteTodo, finishedTask, deleteCompleted})(App);
