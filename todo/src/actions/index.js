@@ -8,7 +8,7 @@ export const DELETE_COMPLETED = "DELETE_COMPLETED";
 export const addTodo = (todo) => {
   return {
     Type: ADD_TODO,
-    payload: todo
+    payload: { id: Date.now(), value: todo, completed: false}
   }
 }
 
